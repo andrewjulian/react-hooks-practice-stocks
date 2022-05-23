@@ -1,10 +1,10 @@
 import React from "react";
 
-function SearchBar() {
+function SearchBar({handleStockFilter, sortBySelection}) {
   return (
     <div>
       <strong>Sort by:</strong>
-      <label>
+      <label onClick={sortBySelection}>
         <input
           type="radio"
           value="Alphabetically"
@@ -14,7 +14,7 @@ function SearchBar() {
         />
         Alphabetically
       </label>
-      <label>
+      <label onClick={sortBySelection}>
         <input
           type="radio"
           value="Price"
@@ -27,7 +27,8 @@ function SearchBar() {
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleStockFilter}>
+          <option value="All">All</option> 
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
